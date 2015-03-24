@@ -1,0 +1,11 @@
+- copy: src=mongodb.repo dest=/etc/yum.repos.d/mongodb.repo
+  sudo: true
+- yum: name={{item}} state=latest
+  with_items:
+    - mongodb-org-server
+  sudo: yes
+- lineinfile: dest=/etc/mongod.conf regexp=bind_ip=127.0.0.1 line="# bind_ip=127.0.0.1"
+  sudo: yes
+- service: name=mongod state=started
+  sudo: yes
+- mongodb_user: database=todo name=todo password=todo state=present
