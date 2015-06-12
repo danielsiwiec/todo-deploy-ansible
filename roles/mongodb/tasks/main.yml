@@ -8,6 +8,7 @@
   sudo: yes
 - get_url: url=https://bootstrap.pypa.io/get-pip.py dest=~ mode=0777
 - shell: python get-pip.py
+  sudo: yes
 - pip: name=pymongo
   sudo: yes
 - mongodb_user: database=todo name=todo password=todo state=present

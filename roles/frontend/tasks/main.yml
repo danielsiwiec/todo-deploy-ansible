@@ -1,15 +1,20 @@
+- copy: src=nginx.repo dest=/etc/yum.repos.d/nginx.repo
+  sudo: yes
 - yum: name=nginx
   sudo: yes
-- get_url: url=https://github.com/danielsiwiec/todo-client/archive/master.zip dest=/home/ec2-user/frontend.zip
+- get_url: url=https://github.com/danielsiwiec/todo-client/archive/master.zip dest=~/frontend.zip
+  sudo: yes
 - file: path=/www/data state=directory
   sudo: yes
-- unarchive: src=/home/ec2-user/frontend.zip dest=/www/data/ copy=no
+- unarchive: src=~/frontend.zip dest=/www/data/ copy=no
   sudo: yes
 - shell: curl -sL https://rpm.nodesource.com/setup | bash -
   sudo: true
 - yum: name=nodejs
   sudo: yes
 - shell: npm install chdir=/www/data/todo-client-master
+  sudo: yes
+- file: path=/etc/nginx/conf.d/ state=absent
   sudo: yes
 - copy: src=todomvc.conf dest=/etc/nginx/conf.d/
   sudo: yes
