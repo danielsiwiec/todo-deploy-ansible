@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   ip = "192.168.50.4"
 
   config.vm.network "private_network", ip: ip
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
 
   config.vm.provision "ansible" do |ansible|
       ansible.playbook = "playbook.yml"
