@@ -9,7 +9,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   ip = "192.168.50.4"
 
   config.vm.network "private_network", ip: ip
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
 
   config.vm.provision "ansible" do |ansible|
       ansible.playbook = "playbook.yml"
@@ -18,8 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       ansible.verbose =  'vvvv'
       ansible.extra_vars = { ansible_ssh_user: 'vagrant',
                    ansible_ssh_pass: 'vagrant',
-                   ansible_connection: 'ssh',
-                   ansible_ssh_args: '-o ForwardAgent=yes'}
+                   ansible_connection: 'ssh'}
   end
 
 end
