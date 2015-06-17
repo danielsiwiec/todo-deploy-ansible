@@ -7,7 +7,8 @@
 - service: name=mongod state=started
   sudo: yes
 - get_url: url=https://bootstrap.pypa.io/get-pip.py dest=~ mode=0777
-- shell: python get-pip.py
+  sudo: yes
+- shell: python get-pip.py chdir=~/
   sudo: yes
 - pip: name=pymongo
   sudo: yes

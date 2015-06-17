@@ -1,10 +1,12 @@
-- get_url: url=https://github.com/danielsiwiec/todo-backend-node-coffee-mongo/archive/master.zip dest=~/backend.zip
+- get_url: url=https://github.com/danielsiwiec/todo-backend-node-coffee-mongo/archive/local-db.zip dest=~/backend.zip
 - unarchive: src=~/backend.zip dest=~/ copy=no
 - shell: curl -sL https://rpm.nodesource.com/setup | bash -
   sudo: true
 - yum: name=nodejs
   sudo: yes
-- shell: npm install chdir=~/todo-backend-node-coffee-mongo-master
+- shell: npm install --unsafe-perm chdir=~/todo-backend-node-coffee-mongo-local-db
+  sudo: yes
 - npm: global=yes name=coffee-script
   sudo: yes
-- shell: nohup coffee server.coffee & chdir=~/todo-backend-node-coffee-mongo-master
+- shell: nohup coffee server.coffee & chdir=~/todo-backend-node-coffee-mongo-local-db
+  sudo: yes
