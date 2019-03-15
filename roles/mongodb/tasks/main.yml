@@ -1,15 +1,22 @@
-- copy: src=mongodb.repo dest=/etc/yum.repos.d/mongodb.repo
-  sudo: true
-- yum: name=mongodb-org-server
-  sudo: yes
-- lineinfile: dest=/etc/mongod.conf regexp=bind_ip=127.0.0.1 line="# bind_ip=127.0.0.1"
-  sudo: yes
+- copy: src=mongodb-org-4.0.repo dest=/etc/yum.repos.d/mongodb-org-4.0.repo
+  become: true
+  become_user: root
+- yum: name=mongodb-org
+  become: true
+  become_user: root
+# - lineinfile: dest=/etc/mongod.conf regexp=bind_ip=127.0.0.1 line="# bind_ip=127.0.0.1"
+  # become: true
+  # become_user: root
 - service: name=mongod state=started
-  sudo: yes
-- get_url: url=https://bootstrap.pypa.io/get-pip.py dest=~ mode=0777
-  sudo: yes
-- shell: python get-pip.py chdir=~/
-  sudo: yes
-- pip: name=pymongo
-  sudo: yes
-- mongodb_user: database=todo name=todo password=todo state=present
+  become: true
+  become_user: root
+# - get_url: url=https://bootstrap.pypa.io/2.6/get-pip.py dest=~ mode=0777
+#   become: true
+#   become_user: root
+# - shell: python get-pip.py chdir=~/
+#   become: true
+#   become_user: root
+# - pip: name=pymongo
+#   become: true
+#   become_user: root
+# - mongodb_user: database=todo name=todo password=todo state=present

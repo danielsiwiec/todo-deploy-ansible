@@ -1,22 +1,33 @@
 - copy: src=nginx.repo dest=/etc/yum.repos.d/nginx.repo
-  sudo: yes
+  become: true
+  become_user: root
 - yum: name=nginx
-  sudo: yes
+  become: true
+  become_user: root
 - get_url: url=https://github.com/danielsiwiec/todo-client/archive/master.zip dest=~/frontend.zip
-  sudo: yes
+  become: true
+  become_user: root
 - file: path=/www/data state=directory
-  sudo: yes
+  become: true
+  become_user: root
 - unarchive: src=~/frontend.zip dest=/www/data/ copy=no
-  sudo: yes
+  become: true
+  become_user: root
 - shell: curl -sL https://rpm.nodesource.com/setup | bash -
-  sudo: true
+  become: true
+  become_user: root
 - yum: name=nodejs
-  sudo: yes
+  become: true
+  become_user: root
 - shell: npm install chdir=/www/data/todo-client-master
-  sudo: yes
+  become: true
+  become_user: root
 - file: path=/etc/nginx/conf.d/ state=absent
-  sudo: yes
+  become: true
+  become_user: root
 - copy: src=todomvc.conf dest=/etc/nginx/conf.d/
-  sudo: yes
+  become: true
+  become_user: root
 - service: name=nginx state=started
-  sudo: yes
+  become: true
+  become_user: root

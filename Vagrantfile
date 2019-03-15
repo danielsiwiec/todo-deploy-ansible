@@ -4,7 +4,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "chef/centos-6.5"
+  config.vm.box = "bento/centos-6.8"
 
   ip = "192.168.50.4"
 
@@ -13,7 +13,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision "ansible" do |ansible|
       ansible.playbook = "playbook.yml"
-      ansible.sudo = true
+      ansible.become = true
+      ansible.become_user = "root"
       ansible.host_key_checking = false
   end
 

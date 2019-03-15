@@ -1,5 +1,5 @@
-- yum: name={{ item }} state=latest
-  sudo: yes
-  with_items:
-    - libselinux-python
-    - unzip
+- yum:
+    name: ['libselinux-python','unzip']
+    state: latest
+  become: true
+  become_user: root
