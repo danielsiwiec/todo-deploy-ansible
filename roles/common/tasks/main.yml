@@ -1,5 +1,3 @@
 - yum:
-    name: ['libselinux-python','unzip']
+    name: 'libselinux-python'
     state: latest
-  become: true
-  become_user: root

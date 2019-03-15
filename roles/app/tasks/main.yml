@@ -1,0 +1,16 @@
+- shell: curl -sL https://rpm.nodesource.com/setup_10.x | bash -
+- yum: name=nodejs
+- shell: npm install
+  args:
+    chdir: /vagrant/todo-app
+- npm:
+    name: pm2
+    global: yes
+    production: yes
+    state: present
+- shell: pm2 start app/index.js
+  environment:
+    DB: 'mongodb://localhost:27017/todo'
+    PORT: '8080'
+  args:
+    chdir: /vagrant/todo-app

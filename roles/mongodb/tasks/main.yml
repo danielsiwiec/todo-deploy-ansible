@@ -4,19 +4,6 @@
 - yum: name=mongodb-org
   become: true
   become_user: root
-# - lineinfile: dest=/etc/mongod.conf regexp=bind_ip=127.0.0.1 line="# bind_ip=127.0.0.1"
-  # become: true
-  # become_user: root
 - service: name=mongod state=started
   become: true
   become_user: root
-# - get_url: url=https://bootstrap.pypa.io/2.6/get-pip.py dest=~ mode=0777
-#   become: true
-#   become_user: root
-# - shell: python get-pip.py chdir=~/
-#   become: true
-#   become_user: root
-# - pip: name=pymongo
-#   become: true
-#   become_user: root
-# - mongodb_user: database=todo name=todo password=todo state=present
