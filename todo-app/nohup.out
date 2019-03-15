@@ -1,0 +1,24 @@
+
+> todo-backend-node-coffee-mongo@0.0.1 start /vagrant/todo-app
+> node app/index.js
+
+(node:3531) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+Node server started on port 8080
+Connected to db
+(node:3531) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+
+> todo-backend-node-coffee-mongo@0.0.1 start /vagrant/todo-app
+> node app/index.js
+
+(node:3587) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+Node server started on port 8080
+Connected to db
+(node:3587) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+
+> todo-backend-node-coffee-mongo@0.0.1 start /vagrant/todo-app
+> node app/index.js
+
+(node:3486) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+Node server started on port 8080
+Connected to db
+(node:3486) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
