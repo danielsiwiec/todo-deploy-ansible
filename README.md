@@ -7,6 +7,7 @@ This is part of the [todo-deploy](https://tododeploy.com) project
 - vagrant
 - virtual box
 
-### Usage
+### Running
 
-Just do vagrant up and then open 192.168.50.4 in the browser.
+1. `vagrant up`
+2. open http://localhost:8080

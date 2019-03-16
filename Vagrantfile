@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "bento/centos-6.8"
 
-  config.vm.network "forwarded_port", guest: 8080, host: 80
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
 
   config.vm.provision "ansible" do |ansible|
       ansible.compatibility_mode = "2.0"
