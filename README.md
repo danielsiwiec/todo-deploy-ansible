@@ -9,5 +9,5 @@ This is part of the [todo-deploy](https://tododeploy.com) project
 
 ### Running
 
-1. `vagrant up`
+1. `make up`
 2. open http://localhost:8080
